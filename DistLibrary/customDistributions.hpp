@@ -191,7 +191,8 @@ class binomialDist : public DistGen_Abstract {
 public:
   double p;
   int N;
-  boost::math::binomial_distribution<> * dist;
+  boost::random::binomial_distribution<int> * dist;
+  boost::random::mt19937 gen;
   binomialDist(double p, int N);
   int sample();
   double sampleF();

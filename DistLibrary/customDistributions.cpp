@@ -220,6 +220,7 @@ std::vector<std::pair<double *, double *>*> * composite_Dist::plotAllComps(doubl
 binomialDist::binomialDist(double p, int N){
   this->p = p;
   this->N = N;
+  this->dist = new boost::random::binomial_distribution<int>(N,p);
 }
 
 int binomialDist::sample(){
@@ -228,7 +229,8 @@ int binomialDist::sample(){
 }
 
 double binomialDist::sampleF(){
-  return 0;
+  double r = (*(this->dist))(this->gen);
+  return int(r);
 }
 
 
